@@ -1,0 +1,11 @@
+.git/
+.gitignore
+.opencode/
+.specify/
+.vscode/
+.idea/
+.DS_Store
+*.log
+__pycache__/
+*.pyc
+*.pyo
