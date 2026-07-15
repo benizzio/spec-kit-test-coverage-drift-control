@@ -47,16 +47,16 @@ You **MUST** consider the user input before proceeding (if not empty). The user 
 9. Treat completed matching `COV-DRIFT-###` tasks in existing phases as historical attempts, not duplicates: a finding that is still or again `Pending` requires a new remediation or validation attempt. Ensure each selected pending finding appears only once in the new phase.
 10. Append a new final phase dedicated to test-coverage drift remediation, following the phase structure used by the current `tasks.md` rather than a hard-coded template.
 11. Create one unchecked Spec Kit task per selected pending coverage drift finding:
-   - continue task IDs by finding existing IDs that match `T` followed by digits, incrementing the highest numeric suffix, and preserving the existing numeric width
-   - ignore mixed-prefix IDs and non-numeric suffix variants such as `T012a` when deriving the next numeric task ID
-   - use the task checkbox and task-line conventions from the current local Spec Kit installation
-   - include the `COV-DRIFT-###` ID, severity, and finding title
-   - reference `test-coverage-drift-report.md` and the finding's report topic or anchor
-   - include the evidence file paths from the report when they are available
-   - base the requested work on the finding's recorded `**Remediation plan**:` section
-   - phrase the work as implementation-oriented remediation that `/speckit.implement` can execute
-   - make the task explicitly address the coverage target, coverage gate instrumentation, required test type, or test-structure drift identified by the finding
-   - include the plan's focused validation in the task or identify the matching verification task that must pass before the finding can be resolved
+    - continue task IDs by finding existing IDs that match `T` followed by digits, incrementing the highest numeric suffix, and preserving the existing numeric width
+    - ignore mixed-prefix IDs and non-numeric suffix variants such as `T012a` when deriving the next numeric task ID
+    - use the task checkbox and task-line conventions from the current local Spec Kit installation
+    - include the `COV-DRIFT-###` ID, severity, and finding title
+    - reference `test-coverage-drift-report.md` and the finding's report topic or anchor
+    - include the evidence file paths from the report when they are available
+    - base the requested work on the finding's recorded `**Remediation plan**:` section
+    - phrase the work as implementation-oriented remediation that `/speckit.implement` can execute
+    - make the task explicitly address the coverage target, coverage gate instrumentation, required test type, or test-structure drift identified by the finding
+    - include the plan's focused validation in the task or identify the matching verification task that must pass before the finding can be resolved
 12. Add verification tasks when they are required by the current Spec Kit task conventions, by the selected pending report findings, or by the coverage baseline. Use existing project validation commands from the feature plan, repository files, or coverage definition reference files.
 13. Add one final unchecked Spec Kit task after all remediation and verification tasks. This task MUST be the last task in the appended phase and MUST enumerate the `COV-DRIFT-###` IDs planned in that phase and instruct `/speckit.implement` to update `test-coverage-drift-report.md` by changing the `Status` of only enumerated findings whose remediation and focused validation completed successfully to `Resolved`, adding or updating their `Resolution` notes, and leaving unsuccessful or unvalidated findings `Pending`. It must preserve all other findings, remediation plans, historical resolution context, and report content.
 14. Write `FEATURE_DIR/tasks.md`.
